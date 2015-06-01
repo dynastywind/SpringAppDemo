@@ -22,13 +22,19 @@
 
        <bean id="mysqlSchemaDataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
               <property name="driverClassName" value="${db.driver}" />
-              <property name="url" value="${db.url}" />
+              <property name="url" value="${db.url2}" />
               <property name="username" value="${db.user}" />
               <property name="password" value="${db.password}" />
        </bean>
 
        <bean id="multipleDataSource" class="org.lyndon.config.MultipleDataSource">
-
+              <property name="defaultTargetDataSource" ref="springAppDataSource" />
+              <property name="targetDataSources">
+                     <map>
+                            <entry key="springAppDataSource" value-ref="springAppDataSource" />
+                            <entry key="mysqlSchemaDataSource" value-ref="mysqlSchemaDataSource" />
+                     </map>
+              </property>
        </bean>
 
        <bean id="localContainerEntityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
