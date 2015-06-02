@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate4.HibernateExceptionTranslator;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.annotation.Resource;
 import java.util.Properties;
@@ -13,6 +14,7 @@ import java.util.Properties;
  * Created by yli on 6/2/2015.
  */
 @Configuration
+@EnableTransactionManagement
 @PropertySource("classpath:application.properties")
 public class BaseJpaConfig {
 
