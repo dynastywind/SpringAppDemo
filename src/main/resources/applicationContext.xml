@@ -37,9 +37,18 @@
               </property>
        </bean>
 
+       <bean id="hibernatePersistenceProvider" class="org.hibernate.jpa.HibernatePersistenceProvider" />
+
        <bean id="localContainerEntityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
               <property name="dataSource" ref="multipleDataSource" />
-              <property name="persistenceProvider" value="org.hibernate.jpa.HibernatePersistenceProvider" />
+              <property name="persistenceProvider" ref="hibernatePersistenceProvider" />
+              <property name="packagesToScan" value="org.lyndon.entity1,org.lyndon.entity2" />
+              <property name="jpaProperties">
+                     <props>
+                            <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                            <prop key="hibernate.show.sql">${hibernate.show.sql}</prop>
+                     </props>
+              </property>
        </bean>
 
        <tx:annotation-driven transaction-manager="txManager" />
