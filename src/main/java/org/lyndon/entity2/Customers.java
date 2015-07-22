@@ -9,8 +9,8 @@ import javax.persistence.Table;
  * Created by yli on 6/1/2015.
  */
 @Entity
-@Table(name = "person")
-public class TestPerson {
+@Table(name = "Customers")
+public class Customers {
 
     @Id
     @Column(name = "id")
