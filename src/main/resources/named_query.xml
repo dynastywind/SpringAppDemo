@@ -1,17 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	
-	<sql-query name="custom">
-		<![CDATA[
-			SELECT 
-				p.name
-			FROM
-				Person p
-			WHERE
-				p.name = :name
-		]]>
-	</sql-query>
-	
+    <sql-query name="custom">
+        <![CDATA[
+            SELECT
+                p.name
+            FROM
+            	Person p
+            WHERE
+            	p.name = :name
+        ]]>
+    </sql-query>
+
 </hibernate-mapping>
