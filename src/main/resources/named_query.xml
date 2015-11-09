@@ -7,10 +7,9 @@
             SELECT
                 p.name
             FROM
-            	Person p
+                Person p
             WHERE
-            	p.name = :name
+                p.name = :name
         ]]>
     </sql-query>
-
 </hibernate-mapping>
