@@ -3,6 +3,8 @@ package org.lyndon.service;
 import org.lyndon.entity1.Person;
 import org.lyndon.entity2.Customers;
 import org.lyndon.repository1.PersonRepository;
+import org.lyndon.repository1.PersonRepositoryCustom;
+import org.lyndon.repository1.PersonRepositoryImpl;
 import org.lyndon.repository2.CustomersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,9 @@ public class PersonServiceImpl implements PersonService {
 
     @Autowired
     private CustomersRepository customersRepository;
+    
+    @Autowired
+    private PersonRepositoryCustom personRepositoryCustom;
 
     @Override
     public void serve() {
@@ -41,6 +46,8 @@ public class PersonServiceImpl implements PersonService {
         System.out.println(customersRepository.count());
         customersRepository.delete(customers);
         System.out.println(customersRepository.count());
+
+        personRepositoryCustom.find();
     }
 
 }

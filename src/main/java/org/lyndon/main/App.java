@@ -1,13 +1,12 @@
 package org.lyndon.main;
 
 import org.lyndon.service.PersonService;
+import org.lyndon.vo.SearchResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.*;
 
 /**
  * Created by Lyndon on 30/5/15.
@@ -19,6 +18,12 @@ public class App {
 
     @Autowired
     private PersonService personService;
+
+    @Bean
+    @Scope("prototype")
+    public SearchResult getSearchResult() {
+        return new SearchResult();
+    }
 
     public void exec() {
         personService.serve();

@@ -26,6 +26,7 @@ public class SpringJpaConfig extends BaseJpaConfig {
     private static final String DATABASE_USER = "db.user";
     private static final String DATABASE_PASSWORD = "db.password";
     private static final String PACKAGES_TO_SCAN = "packages.to.scan";
+    private static final String SQL_FILE = "sql.file";
 
     @Bean
     @ConfigurationProperties(prefix = "datasource.primary")
@@ -45,6 +46,7 @@ public class SpringJpaConfig extends BaseJpaConfig {
         factory.setPersistenceProviderClass(HibernatePersistenceProvider.class);
         factory.setPackagesToScan(env.getRequiredProperty(PACKAGES_TO_SCAN).split(","));
         factory.setJpaProperties(hibernateProperties());
+        factory.setMappingResources(env.getRequiredProperty(SQL_FILE));
         factory.afterPropertiesSet();
         return factory;
     }
